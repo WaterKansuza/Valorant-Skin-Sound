@@ -7,6 +7,8 @@
 #include <mmsystem.h>
 #include <cstdlib>
 #include <ctime>
+#include <vector>
+
 
 // clear screen
 #define clearScreen() printf("\033[H\033[J")
@@ -25,11 +27,15 @@
 bool isShooting = false;
 bool isWeaponEquipped = true;
 int currentTransientIndex = 1;
-int currentVolume = 10;
+int currentVolume = 15;
+int currentSlot = 1;
+std::vector<std::string> options = {"Aquarium", "Hellfire", "HypeDragon", "Ashen", "Cyberpunk"};
+int currentIndex = 0;
+
 std::thread audioThread;
 
 // Biến lưu tên thư mục skin hiện tại (Thay đổi thủ công tại đây)
-std::string currentSkin = "Aquarium";
+std::string currentSkin = "Hellfire";
 
 // UI
 void InitUI()
@@ -43,19 +49,35 @@ void InitUI()
     gotoXy(3, 1);
     std::cout << "Volume    :";
     gotoXy(4, 1);
-    std::cout << "\nF1: Start, F3: Stop \nUp: Volumn Up, Dn: Volumn Down";
+    std::cout << "\nF1: Start, F3: Stop \nRight: Volumn Up, Left: Volumn Down \nUp/Down: Change Skin";
     std::fflush(stdout);
 }
 void UpdateSkinUI()
 {
+	currentSkin = options[currentIndex];
     gotoXy(2, 13);
+    
     std::cout << currentSkin << "          " << std::flush;
+//    if (currentSlot == 1){
+//    	std::cout << "\033[7m" << currentSkin << "\033[0m" << "          " << std::flush;
+//	}
+//	else{
+//		std::cout << currentSkin << "          " << std::flush;
+//	}
+    
+    
 }
 
 void UpdateVolumeUI()
 {
     gotoXy(3, 13);
     std::cout << currentVolume << "%  " << std::flush;
+//    if (currentSlot == 2){
+//    	std::cout << "\033[7m" << currentVolume << "%" << "\033[0m" << "  " << std::flush;
+//	}
+//	else{
+//		std::cout << currentVolume << "%  " << std::flush;
+//	}
 }
 
 
@@ -123,6 +145,9 @@ void ShootingLogic()
         {
             currentTransientIndex = (rand() % 3) + 1;
         }
+        else if (currentSkin == "Ashen"){
+        	currentTransientIndex = (rand() % 4) + 1;
+		}
         else
         {
             currentTransientIndex = (rand() % 5) + 1;
@@ -192,7 +217,7 @@ LRESULT CALLBACK KeyboardHookProc(int nCode, WPARAM wParam, LPARAM lParam)
         {
             PostQuitMessage(0);
         }
-        else if (kbdStruct->vkCode == VK_UP)
+        else if (kbdStruct->vkCode == VK_RIGHT)
         {
             currentVolume += 5;
             if (currentVolume > 100)
@@ -200,7 +225,7 @@ LRESULT CALLBACK KeyboardHookProc(int nCode, WPARAM wParam, LPARAM lParam)
             SetAppVolume(currentVolume);
             //UpdateVolumeUI();
         }
-        else if (kbdStruct->vkCode == VK_DOWN)
+        else if (kbdStruct->vkCode == VK_LEFT)
         {
             currentVolume -= 5;
             if (currentVolume < 0)
@@ -208,6 +233,25 @@ LRESULT CALLBACK KeyboardHookProc(int nCode, WPARAM wParam, LPARAM lParam)
             SetAppVolume(currentVolume);
             //UpdateVolumeUI();
         }
+        
+        else if (kbdStruct->vkCode == VK_UP){
+        	currentIndex--;
+        	if (currentIndex < 0){
+        		currentIndex = options.size() - 1;
+			}
+			UpdateSkinUI();
+		}
+		
+		else if (kbdStruct->vkCode == VK_DOWN){
+        	currentIndex++;
+        	if (currentIndex >= options.size()){
+        		currentIndex = 0;
+			}
+			UpdateSkinUI();
+		}
+
+		
+
 
         else if (kbdStruct->vkCode == '1')
         {
