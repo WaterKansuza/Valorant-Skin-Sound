@@ -5,6 +5,7 @@
 <p>Press q, e, c, x, 2, 3 it will turn off automatically because its not the vandal slot!</p>
 <p>ENJOY!!</p>
 ---
+
 ## ⚠️ Disclaimer
 
 > **Please read this section carefully before downloading, running, modifying, or distributing this project. By using this project, you acknowledge that you have read, understood, and agreed to everything below.**
@@ -13,10 +14,10 @@
 This project is provided for **educational, personal, and experimental purposes only**. It was created to demonstrate programming concepts such as input automation, scripting, and software design. It is not intended to harm any person, service, or company.
 
 ### 2. No Affiliation
-This project is an independent, unofficial work. It is **not affiliated with, endorsed by, sponsored by, or connected in any way to [Game Name], [Publisher/Developer Name]**, or any of their subsidiaries or partners. All game names, trademarks, logos, characters, sounds, images, and other assets mentioned or referenced belong to their respective owners and are used only for identification purposes.
+This project is an independent, unofficial work. It is **not affiliated with, endorsed by, sponsored by, or connected in any way to Valorant, RiotGame**, or any of their subsidiaries or partners. All game names, trademarks, logos, characters, sounds, images, and other assets mentioned or referenced belong to their respective owners and are used only for identification purposes.
 
 ### 3. Terms of Service and Risk of Account Action
-Using macros, scripts, or any form of automation may **violate the Terms of Service, End User License Agreement, or Rules of Conduct** of [Game Name] or other games. Possible consequences include, but are not limited to: warnings, temporary suspension, permanent account bans, hardware bans, loss of items, progress, or purchased content.
+Using macros, scripts, or any form of automation may **violate the Terms of Service, End User License Agreement, or Rules of Conduct** of Valorant or other games. Possible consequences include, but are not limited to: warnings, temporary suspension, permanent account bans, hardware bans, loss of items, progress, or purchased content.
 
 - You are **solely responsible** for reading and complying with the rules of any game or service you use this project with.
 - **The author is not responsible** for any penalty, ban, loss, or damage resulting from your use of this project.
@@ -58,7 +59,7 @@ You may modify and redistribute this project under the terms of the MIT License.
 The author has no obligation to maintain, update, fix, or provide support for this project. It may stop working at any time due to game updates, system changes, or other reasons, and may be modified or removed without notice.
 
 ### 14. Rights Holders and Takedown
-If you are a copyright or trademark owner and believe that any part of this project infringes your rights, please contact me at **[your email]** or open an issue. I will review the request and respond promptly, including removing the relevant content when appropriate.
+If you are a copyright or trademark owner and believe that any part of this project infringes your rights, please open an issue. I will review the request and respond promptly, including removing the relevant content when appropriate.
 
 ### 15. Acceptance
 If you do not agree with any part of this disclaimer, **do not use this project.** Your use of the project means you accept all of the above.
